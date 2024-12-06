@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favi/favi-main2.png" sizes="32x32" type="image/png">
+    <title>Glass-Beads-Fonts</title>
+    <style>
+        @font-face {
+            font-family: 'Manifont Grotesk Book';
+            font-style: normal;
+            font-weight: normal;
+            src: local('Manifont Grotesk Book'), url('ManifontGroteskBook.woff') format('woff');
+            unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+        }
+        @font-face {
+            font-family: 'Manifont Grotesk Bold';
+            font-style: normal;
+            font-weight: normal;
+            src: local('Manifont Grotesk Bold'), url('ManifontGroteskBold.woff') format('woff');
+            unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+        }
+        @font-face {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+            src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+            font-weight: 500,700;
+            font-style: normal;
+            unicode-range: U+AC00-D7A3;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Manifont Grotesk Book',"Pretendard Variable";
+            font-style: normal;
+            font-weight: normal;
+        }
+        
+        .navbar {
+            display: flex; 
+            justify-content: left; 
+            align-items: left; 
+            /* margin-left: 1vw; */
+        }
+        .navbar a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 7px 25px;
+            border-radius: 40px;
+            font-size: 2vw;
+        }
+        .glassbeadsfonts {
+            background-color: #00bfff;
+        }
+
+        .about {
+            background-color: #fff200;
+        }
+
+        .hyowonkim {
+            background-color: #ff0000;
+            margin-left: auto;
+        }
+       
+        header {
+            text-align: center;
+            grid-column: span 5; 
+        }
+        
+        .content {
+           
+            display: none; 
+            position: absolute;
+            top: 60px; 
+            left: 50px; 
+            width: 20vw;
+            height: 300px;
+            overflow-y: auto; 
+            font-size: 1.1rem;
+            padding: 10px; 
+            z-index: 100;
+           
+            box-sizing: border-box; 
+
+        }
+        .content p{
+            margin: 0;
+        }
+
+        .kor{
+            line-height: 1.5rem;
+            font-weight: 530;
+        }
+        #about-content {
+            background-color:#fff200;
+            color: #000; 
+            word-break: keep-all;
+        }
+
+
+        #hyowonkim-content {
+            align-items: right;
+            background-color: #ff0000; 
+            color: black;
+            width: 16vw;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); 
+            grid-auto-rows: min-content; 
+            
+            padding: 2vw;
+            margin-top: -2vw;
+        }
+
+        .item {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 0.9px solid #ddd; */
+            padding: 10px;
+            position: relative;
+        }
+        .item img {
+            max-width: 100%;
+            height: auto; 
+        }
+        .beadsimg{
+            width: 10vw;
+        }
+        .delica{
+            width: 11vw;
+        }
+        .skunk{
+            width: 9.3vw;
+        }
+        .beadslong{
+            width: 10vw;
+        }
+        .beadslong2{
+            width: 8vw;
+        }
+        /* 2row -> 2 items */
+        .second-column:nth-child(2) {
+            grid-row: span 2; 
+        }
+        .scrollbar { 
+        width: 250px;
+        height: 250px;
+        overflow-y: scroll;
+        }
+        .scrollbar::-webkit-scrollbar {
+            width: 10px;  
+        }
+        .scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(220, 20, 60); 
+            border-radius: 10px;
+        }
+        .scrollbar::-webkit-scrollbar-track {
+            background: rgba(220, 20, 60, .1); 
+        }
+        .scrollbar2 { 
+        width: 250px;
+        height: 250px;
+        overflow-y: scroll;
+        }
+        .scrollbar2::-webkit-scrollbar {
+            width: 10px;  
+        }
+        .scrollbar2::-webkit-scrollbar-thumb {
+            background: rgb(255, 251, 0); 
+            border-radius: 10px;
+        }
+        .scrollbar2::-webkit-scrollbar-track {
+            background: rgba(220, 20, 60, .1); 
+        }
+        .hover-content {
+            border-radius: 20px;
+            position: absolute;
+            top: 70%;
+            left: 100%; 
+            transform: translateY(-50%); 
+            width: 15vw; 
+            height: 15vw;
+            /* background-color: white; */
+            color: #00bfff;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:2px 2px;
+            box-sizing: border-box;
+            z-index: 10; 
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            border-radius: 20px;
+        }
+        .item:hover .hover-content {
+            display: flex;
+            left: calc(70% + 10px);
+        }
+        .hover-content img.hover-image {
+            max-width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            z-index: 1;   
+        }
+        .czech{
+            color: rgba(220, 20, 60);
+        }
+        .african{
+            color: #00bfff;
+        }
+        .japanese{
+            color: rgb(255, 251, 0); 
+        }
+        .hover-text {
+            position: absolute;
+            z-index: 2;
+            font-size: 1.2rem;
+            margin: 0; 
+        }
+        .hover-text.top-left {
+            top: 0;
+            left:1vw;
+        }
+        .hover-text.bottom-right {
+            top:0;
+            right: 1vw;
+        }
+        .item:hover .hover-content {
+            display: flex;
+            left: calc(70% + 10px);
+        }
+        .item:nth-child(5n):hover .hover-content {
+            left: auto;
+            right: calc(70% + 10px);
+        }
+        .item.special-hover:hover .hover-content {
+            top: 10%;
+            left: calc(70% + 10px); 
+            right: auto; 
+            transform: none; 
+        }
+        .hyo{
+            width: 100%;
+        }
+        .bead-img {
+    transition: transform 0.3s ease; /* 부드러운 변화를 위해 추가 */
+}
+        .content p {
+            line-height: 1.4vw;
+        }
+        .line{    
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="Glass-Beads-Fonts.html" class="glassbeadsfonts">Glass Beads Fonts</a>
+            <a href="#about" class="about" onclick="toggleContent(event, 'about-content')">About</a>
+            <a href="#hyowonkim" class="hyowonkim" onclick="toggleContent(event, 'hyowonkim-content')">HyodoreÜ</a>
+        </div>
+    </header>
+    <div id="about-content" class="content scrollbar">
+        <p class="kor">세상에는 개성 넘치고 독특한 글라스 비즈들이 가득하다. 작은 비즈 하나에도 모양, 색, 패턴에 따라 다채로운 이름이 붙으며, 그 비즈들이 모여 목걸이나 팔찌 같은 작품을 완성한다. Glass Beads Fonts는 이런 비즈들의 매력에 영감을 받아 체코, 아프리카, 일본 글라스 비즈들의 독특한 질감, 색상, 형태를 연구해 14개의 개성 있는 영문 폰트로 재해석했다. 이 프로젝트는 백터, 3d, 일러스트레이션 그래픽의 각기 다른 개성을 지닌 폰트를 타이핑해볼 수 있는 웹 페이지와 폰트를 활용한 그래픽 작업으로 구성되어 있다. </p>
+        <p>The world is full of unique and distinctive glass beads. Each tiny bead is given a colorful name based on its shape, color, and pattern, and these beads come together to create works like necklaces or bracelets. Glass Beads Fonts is a project that reinterprets the unique textures, colors, and forms of glass beads from the Czech Republic, Africa, and Japan into 14 distinct English fonts. This project consists of a web page where you can type with fonts that have their own character, expressed through vector, 3D, and illustration graphics, as well as graphic works that utilize these fonts.</p>
+    </div>
+    <div id="hyowonkim-content" class="content scrollbar2">
+        <img src="img/me.png" class="hyo">
+        <p>김효원</p>
+        <p class="right-align">HyowonKim</p>
+        <p>2001.06.25</p>
+        <p>illustration / graphic designer</p>
+        <p>Email</p>
+        <p class="line">hyodoreu0625@gmail.com</p>
+        <p>Instagram</p>
+        <p class="line">@hyodoreu_u</p>
+    </div>
+    <div class="container">
+        <div class="item">
+            <a href="delica.html">
+                <img src="img/delica1.png" class="delica bead-img" alt="Bead 1">
+                <div class="hover-content japanese">
+                    <img src="gif/delica.gif" class="hover-image">
+                    <p class="hover-text top-left">Japanese</p>
+                    <p class="hover-text bottom-right">Delica</p>
+                </div>
+            </a>   
+        </div>
+        <div class="item second-column special-hover">
+            <a href="twisted.html">
+                <img src="img/twisted2.png" class="beadslong special-class bead-img" alt="Bead 2">
+                <div class="hover-content japanese">
+                    <img src="gif/twisted.gif" class="hover-image">
+                    <p class="hover-text top-left">Japanese</p>
+                    <p class="hover-text bottom-right">Twisted</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="skunkeye.html">
+                <img src="img/skunkeye1.png" class="skunk bead-img" alt="Bead 3">
+                <div class="hover-content african">
+                    <img src="gif/skunkeye.gif" class="hover-image">
+                    <p class="hover-text top-left">Czech</p>
+                    <p class="hover-text bottom-right">SkunkEye</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="christmas.html">
+                <img src="img/christmas1.png" class="beadsimg bead-img" alt="Bead 4">
+                <div class="hover-content african">
+                    <img src="gif/christmas.gif" class="hover-image">
+                    <p class="hover-text top-left">African</p>
+                    <p class="hover-text bottom-right">Christmas</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="seed.html">
+                <img src="img/seedd.png" class="beadsimg bead-img" alt="Bead 5">
+                <div class="hover-content japanese">
+                    <img src="gif/seed.gif" class="hover-image">
+                    <p class="hover-text top-left">Japanese</p>
+                    <p class="hover-text bottom-right">Seed</p>
+                </div>
+            </a>
+        </div>
+        <div class="item second-column">
+            <a href="berry.html">   
+                <img src="img/berry2.png" class="beadsimg bead-img" alt="Bead 6">
+                <div class="hover-content japanese">
+                    <img src="gif/berry.gif" class="hover-image">
+                    <p class="hover-text top-left">Japanese</p>
+                    <p class="hover-text bottom-right">Berry</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="russianblue.html">
+                <img src="img/russian.png" class="beadsimg bead-img" alt="Bead 7">
+                <div class="hover-content african">
+                    <img src="gif/russian blue.gif" class="hover-image">
+                    <p class="hover-text top-left">African</p>
+                    <p class="hover-text bottom-right">RussianBlue</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="teardrop.html">
+                <img src="img/teardrop1.png" class="beadsimg bead-img" alt="Bead 8">
+                <div class="hover-content czech">
+                    <img src="gif/teardrop.gif" class="hover-image">
+                    <p class="hover-text top-left">Czech</p>
+                    <p class="hover-text bottom-right">Teardrop</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="rondelle.html">
+                <img src="img/rondelle1.png" class="beadsimg bead-img" alt="Bead 9">
+                <div class="hover-content czech">
+                    <img src="gif/rondelle.gif" class="hover-image">
+                    <p class="hover-text top-left">Czech</p>
+                    <p class="hover-text bottom-right">Rondelle</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="ufo.html">
+                <img src="img/ufo1.png" class="beadsimg bead-img" alt="Bead 10">
+                <div class="hover-content czech">
+                    <img src="gif/ufo.gif" class="hover-image">
+                    <p class="hover-text top-left">Czech</p>
+                    <p class="hover-text bottom-right">UFO</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="square.html">    
+                <img src="img/square2.png" class="beadsimg bead-img" alt="Bead 11">
+                <div class="hover-content japanese">
+                    <img src="gif/square.gif" class="hover-image">
+                    <p class="hover-text top-left">Japanese</p>
+                    <p class="hover-text bottom-right">Square</p>
+                </div>
+            </a>
+        </div>
+        <div class="item special-hover">
+            <a href="bugles.html">
+                <img src="img/bugles.png" class="beadslong2 special-class bead-img" alt="Bead 12" >
+                <div class="hover-content japanese">
+                    <img src="gif/bugles.gif" class="hover-image">
+                    <p class="hover-text top-left">Japanese</p>
+                    <p class="hover-text bottom-right">Bugles</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="chevron.html">    
+                <img src="img/chevron-1.png" class="beadsimg bead-img" alt="Bead 13">
+                <div class="hover-content african">
+                    <img src="gif/chevron.gif" class="hover-image">
+                    <p class="hover-text top-left">African</p>
+                    <p class="hover-text bottom-right">Chevron</p>
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="millefiori.html">
+                <img src="img/millefiori-1.png" class="beadsimg bead-img" alt="Bead 14">
+                <div class="hover-content african">
+                    <img src="gif/millefiori.gif" class="hover-image">
+                    <p class="hover-text top-left">African</p>
+                    <p class="hover-text bottom-right">Millefiori</p>
+                </div>
+            </a>
+        </div>
+    </div>
+<script>
+    //nav
+    document.addEventListener('DOMContentLoaded', function() {
+    const navbarLinks = document.querySelectorAll('.navbar a');
+    const contents = document.querySelectorAll('.content');
+    const body = document.body;
+
+        function hideAllContents() {
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+        }
+
+        function showContent(content, link) {
+            hideAllContents();
+            content.style.display = 'block';
+            adjustPosition(content, link);
+        }
+
+        function adjustPosition(content, link) {
+            const linkRect = link.getBoundingClientRect();
+            const contentRect = content.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+
+            if (link.classList.contains('hyowonkim')) {
+
+                content.style.top = `${linkRect.bottom + window.scrollY}px`;
+                content.style.left = `${linkRect.right + window.scrollX - contentRect.width}px`;
+
+                if (contentRect.right > viewportWidth) {
+                    content.style.left = `${viewportWidth - contentRect.width - 20}px`;
+                }
+
+                if (contentRect.left < 0) {
+                    content.style.left = '0px';
+                }
+            } else if (link.classList.contains('about')) {
+    
+                content.style.top = `${linkRect.bottom + window.scrollY}px`;
+                content.style.left = `${linkRect.left + window.scrollX}px`;
+
+                if (contentRect.right > viewportWidth) {
+                    content.style.left = `${viewportWidth - contentRect.width - 20}px`;
+                }
+            }
+        }
+
+        body.addEventListener('click', function(event) {
+            if (!event.target.closest('.navbar a') && !event.target.closest('.content')) {
+                hideAllContents();
+            }
+        });
+
+        navbarLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                if (link.classList.contains('glassbeadsfonts')) {
+                    window.location.href = 'Glass-Beads-Fonts.html';
+                } else if (link.classList.contains('about') || link.classList.contains('hyowonkim')) {
+                    event.preventDefault();
+                    const contentId = link.classList.contains('about') ? 'about-content' : 'hyowonkim-content';
+                    const content = document.getElementById(contentId);
+                    if (content) {
+                        showContent(content, link);
+                    }
+                }
+            });
+        });
+    });
+
+
+
+        document.querySelectorAll('.item').forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            const hoverContent = this.querySelector('.hover-content');
+            const itemRect = this.getBoundingClientRect();
+            const hoverRect = hoverContent.getBoundingClientRect();
+
+            if (itemRect.right + hoverRect.width > window.innerWidth) {
+                hoverContent.style.left = 'auto';
+                hoverContent.style.right = 'calc(50% + 10px)'; 
+            } else {
+                hoverContent.style.left = 'calc(50% + 10px)'; 
+                hoverContent.style.right = 'auto';
+            }
+        });
+
+        item.addEventListener('mouseover', function() {
+            const hoverContent = item.querySelector('.hover-content');
+            if (item.classList.contains('special-hover')) {
+                hoverContent.style.top = '7%'; 
+                hoverContent.style.transform = 'translateX(-%20)'; 
+            } else {
+                hoverContent.style.top = '22%';
+                hoverContent.style.transform = 'translateY(-5%)'; 
+            }
+        });
+    });
+
+
+    function toggleContent(event, contentId) {
+            event.stopPropagation(); 
+
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+
+            document.querySelectorAll('.navbar a').forEach(function(link) {
+                link.style.borderRadius = '40px'; 
+            });
+
+            var contentElement = document.getElementById(contentId);
+            contentElement.style.display = 'block';
+
+            event.target.style.borderRadius = '0';
+        }
+
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.navbar a').forEach(function(link) {
+                link.style.borderRadius = '40px'; 
+            });
+
+
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+        });
+
+        document.querySelector('.navbar').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".bead-img");
+    let animationInterval;
+    let isAnimating = false; // 애니메이션 상태를 추적
+
+    function animateRandomImage() {
+        if (isAnimating) return; // 이미 애니메이션이 실행 중이면 종료
+
+        // 현재 애니메이션 중인 이미지가 있다면 초기화
+        images.forEach(image => {
+            image.style.transform = 'scale(1)'; // 초기화
+        });
+
+        // 랜덤한 이미지 선택
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const selectedImage = images[randomIndex];
+
+        let count = 0;
+        isAnimating = true; // 애니메이션 시작
+
+        // 4번 반복 애니메이션
+        animationInterval = setInterval(() => {
+            // 현재 상태에 따라 크기를 변경
+            const scale = count % 2 === 0 ? 1.1 : 1; // 커졌다 작아졌다
+            selectedImage.style.transform = `scale(${scale})`;
+
+            count++;
+            if (count === 8) { // 4번 커졌다 작아졌다 하려면 8번 실행
+                clearInterval(animationInterval); // 애니메이션 종료
+                selectedImage.style.transform = 'scale(1)'; // 원래 크기로 복귀
+                isAnimating = false; // 애니메이션 종료 상태로 설정
+
+                // 2초 후에 다른 이미지에 대해 애니메이션 시작
+                setTimeout(animateRandomImage, 1000); // 2초 후에 재시작
+            }
+        }, 300); // 300ms 간격
+    }
+
+    // 첫 번째 애니메이션 시작
+    animateRandomImage();
+
+    // 모든 bead-img에 대해 호버 시 애니메이션 멈추기
+    images.forEach(image => {
+        image.addEventListener("mouseenter", () => {
+            clearInterval(animationInterval); // 애니메이션 종료
+            images.forEach(img => img.style.transform = 'scale(1)'); // 모든 이미지를 원래 크기로 복귀
+            isAnimating = false; // 애니메이션 상태 초기화
+        });
+    });
+
+    // 모든 bead-img에 대해 호버를 벗어날 때 애니메이션 재시작
+    const container = document.querySelector(".container");
+    container.addEventListener("mouseleave", () => {
+        animateRandomImage();
+    });
+});
+</script>
+
+
+    
+</body>
+</html>

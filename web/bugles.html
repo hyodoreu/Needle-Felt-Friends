@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="icon" href="favi/favi-bugles.png" sizes="32x32" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing-Bugles-Beads-Fonts</title>
+    <style>
+        @font-face {
+            font-family: 'Manifont Grotesk Book';
+            font-style: normal;
+            font-weight: normal;
+            src: local('Manifont Grotesk Book'), url('ManifontGroteskBook.woff') format('woff');
+            unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+        }
+        @font-face {
+            font-family: 'Manifont Grotesk Bold';
+            font-style: normal;
+            font-weight: normal;
+            src: local('Manifont Grotesk Bold'), url('ManifontGroteskBold.woff') format('woff');
+            unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+        }
+        @font-face {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+            src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+            font-weight: 500,700;
+            font-style: normal;
+            unicode-range: U+AC00-D7A3;
+        }
+        @font-face {
+        font-family: 'bugles';
+        src: url('otf/Bugles.otf') format('opentype');
+        }
+        @font-face {
+        font-family: 'bugles-black';
+        src: url('otf/Bugles-black.otf') format('opentype');
+        }
+        body {
+            overflow: hidden; 
+            margin: 0;
+            font-family: 'Manifont Grotesk Book',"Pretendard Variable";
+            font-style: normal;
+            font-weight: normal;
+        }
+        .navbar {
+            display: flex; 
+            justify-content: left; 
+            align-items: left; 
+            /* margin-left: 1vw; */
+        }
+        .navbar a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 6.3px 31px;
+            border-radius: 40px;
+            font-size: 2vw;
+        }
+        .glassbeadsfonts {
+            background-color: #00bfff;
+        }
+        .about {
+            background-color: #fff200;
+        }
+        .hyowonkim {
+            background-color: #ff0000;
+            margin-left: auto;
+        }
+        header {
+            text-align: center;
+            grid-column: span 5; 
+        }
+        .content {
+            display: none; 
+            position: absolute;
+            top: 60px; 
+            left: 50px; 
+            width: 20vw;
+            height: 300px;
+            overflow-y: auto; 
+            font-size: 1.3rem;
+            padding: 10px; 
+            z-index: 100;  
+            box-sizing: border-box; 
+        }
+        .content p{
+            margin: 0;
+        }
+        .kor{
+            line-height: 1.5rem;
+            font-weight: 530;
+        }
+        #about-content {
+            background-color:#fff200;
+            color: #000; 
+            word-break: keep-all;
+        }
+        #hyowonkim-content {
+            align-items: right;
+            background-color: #ff0000; 
+            color: black;
+            width: 16vw;
+        }
+        .scrollbar { 
+        width: 250px;
+        height: 250px;
+        overflow-y: scroll;
+        }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 10px;  
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb {
+            background: #ff0000;
+            border-radius: 10px;
+        }
+
+        .scrollbar::-webkit-scrollbar-track {
+            background: rgba(220, 20, 20, 0.1); 
+        }
+
+        .scrollbar2 { 
+        width: 250px;
+        height: 250px;
+        overflow-y: scroll;
+        }
+        .scrollbar2::-webkit-scrollbar {
+            width: 10px;  
+        }
+
+        .scrollbar2::-webkit-scrollbar-thumb {
+            background: rgb(255, 251, 0); 
+            border-radius: 10px;
+        }
+
+        .scrollbar2::-webkit-scrollbar-track {
+            background: rgba(220, 160, 20, 0.1); 
+        }
+        .scrollbar3 { 
+        width: 250px;
+        height: 250px;
+        overflow-y: scroll;
+        }
+        .scrollbar3::-webkit-scrollbar {
+            width: 10px;  
+        }
+
+        .scrollbar3::-webkit-scrollbar-thumb {
+            background:  rgb(255, 255, 255); 
+            border-radius: 10px;
+        }
+
+        .scrollbar3::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1); 
+        }
+        .hyo{
+            width: 100%;
+        }
+        .container{
+            margin-top: 1vh;
+            padding: 2vw;
+        }
+        .font-display {
+            scrollbar-width: none; /* 스크롤바 너비 없앰 */
+            scrollbar-color: transparent transparent; 
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            outline: none; 
+            font-family: 'bugles';
+            padding: 20px;
+            font-size: 18vw;
+            align-items: center;
+            text-align: center;
+            width: 90vw;
+            height: calc(80vh - 170px); /* 상단, 하단 여백을 뺀 실제 높이 계산 */
+            max-height: 80vh;
+            overflow: auto; 
+            border: none; 
+            padding-top: 2vw;
+            word-break: break-all;
+            margin: 0 auto; /* 수평 가운데 정렬 */
+            justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center;
+        }
+        .tools {
+            
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            gap: 0.8vw; 
+            font-style: normal;
+            font-weight: normal;
+            margin-bottom: 1vw;
+            margin-top: 2vw;
+        }
+        .tools button {
+            
+            font-family: 'pretendard';
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            border-radius: 20px; 
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+        }
+        input[type="color"] {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            
+            border-radius: 20px; 
+            width: 38px;
+            height: 40px;
+            padding: 10px;             
+        }
+        #change-font{
+            width: 80px;
+        }
+        .footer-text {
+            font-family: 'Manifont Grotesk Book';
+            font-style: normal;
+            font-weight: normal;
+            margin-top: 1vw;
+            font-size: 2.5vw;
+            text-align: center;
+        }
+        .content p {
+            line-height: 1.4vw;
+        }
+        .line{    
+            text-decoration: underline; 
+        }
+        .font-display p{
+            margin: 0;
+            margin-top: -2vh;
+        }
+        .cursor {
+        cursor: url('cursor/bugles.png'), auto;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        span {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="cursor">
+    <header>
+        <div class="navbar">
+            <a href="Glass-Beads-Fonts.html" class="glassbeadsfonts">Glass Beads Fonts</a>
+            <a href="#about" class="about" onclick="toggleContent(event, 'about-content')">About</a>
+            <a href="#hyowonkim" class="hyowonkim" onclick="toggleContent(event, 'hyowonkim-content')">HyodoreÜ</a>
+        </div>
+    </header>
+    <div id="about-content" class="content scrollbar">
+        <p class="kor">세상에는 개성 넘치고 독특한 글라스 비즈들이 가득하다. 작은 비즈 하나에도 모양, 색, 패턴에 따라 다채로운 이름이 붙으며, 그 비즈들이 모여 목걸이나 팔찌 같은 작품을 완성한다. Glass Beads Fonts는 이런 비즈들의 매력에 영감을 받아 체코, 아프리카, 일본 글라스 비즈들의 독특한 질감, 색상, 형태를 연구해 14개의 개성 있는 영문 폰트로 재해석했다. 이 프로젝트는 백터, 3d, 일러스트레이션 그래픽의 각기 다른 개성을 지닌 폰트를 타이핑해볼 수 있는 웹 페이지와 폰트를 활용한 그래픽 작업으로 구성되어 있다. </p>
+        <p>The world is full of unique and distinctive glass beads. Each tiny bead is given a colorful name based on its shape, color, and pattern, and these beads come together to create works like necklaces or bracelets. Glass Beads Fonts is a project that reinterprets the unique textures, colors, and forms of glass beads from the Czech Republic, Africa, and Japan into 14 distinct English fonts. This project consists of a web page where you can type with fonts that have their own character, expressed through vector, 3D, and illustration graphics, as well as graphic works that utilize these fonts.</p>
+    </div>
+    <div id="hyowonkim-content" class="content scrollbar2">
+        <img src="img/me.png" class="hyo">
+        <p>김효원</p>
+        <p class="right-align">HyowonKim</p>
+        <p>2001.06.25</p>
+        <p>illustration / graphic designer</p>
+        <p>Email</p>
+        <p class="line">hyodoreu0625@gmail.com</p>
+        <p>Instagram</p>
+        <p class="line">@hyodoreu_u</p>
+    </div>
+    <div>
+        <section class="container">
+                  <!-- text-->
+            <div class="font-display scrollbar3" contenteditable="true" id="editable-text">
+              <p>abcdefghijklmnopqrstuvwxyz</p>
+            </div>
+            <div class="footer-text cursor">
+                <div class="tools">
+                    <input type="color" id="colorPicker">
+                    <button id="increaseFont" class="cursor">+</button>
+                    <button id="decreaseFont" class="cursor" >-</button>
+                </div>
+                Japanese Bugles Font
+            </div>
+          </section>
+    </div>
+<script>
+    //nav
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbarLinks = document.querySelectorAll('.navbar a');
+        const contents = document.querySelectorAll('.content');
+        const body = document.body;
+
+        function hideAllContents() {
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+        }
+
+        function showContent(content, link) {
+            hideAllContents();
+            content.style.display = 'block';
+            adjustPosition(content, link);
+        }
+
+        function adjustPosition(content, link) {
+            const linkRect = link.getBoundingClientRect();
+            const contentRect = content.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+
+            if (link.classList.contains('hyowonkim')) {
+
+                content.style.top = `${linkRect.bottom + window.scrollY}px`;
+                content.style.left = `${linkRect.right + window.scrollX - contentRect.width}px`;
+
+                if (contentRect.right > viewportWidth) {
+                    content.style.left = `${viewportWidth - contentRect.width - 20}px`;
+                }
+
+                if (contentRect.left < 0) {
+                    content.style.left = '0px';
+                }
+            } else if (link.classList.contains('about')) {
+    
+                content.style.top = `${linkRect.bottom + window.scrollY}px`;
+                content.style.left = `${linkRect.left + window.scrollX}px`;
+
+                if (contentRect.right > viewportWidth) {
+                    content.style.left = `${viewportWidth - contentRect.width - 20}px`;
+                }
+            }
+        }
+
+        body.addEventListener('click', function(event) {
+            if (!event.target.closest('.navbar a') && !event.target.closest('.content')) {
+                hideAllContents();
+            }
+        });
+
+        navbarLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                if (link.classList.contains('glassbeadsfonts')) {
+                    window.location.href = 'Glass-Beads-Fonts.html';
+                } else if (link.classList.contains('about') || link.classList.contains('hyowonkim')) {
+                    event.preventDefault();
+                    const contentId = link.classList.contains('about') ? 'about-content' : 'hyowonkim-content';
+                    const content = document.getElementById(contentId);
+                    if (content) {
+                        showContent(content, link);
+                    }
+                }
+            });
+        });
+    });
+    function toggleContent(event, contentId) {
+            event.stopPropagation(); 
+
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+
+            document.querySelectorAll('.navbar a').forEach(function(link) {
+                link.style.borderRadius = '40px'; 
+            });
+
+            var contentElement = document.getElementById(contentId);
+            contentElement.style.display = 'block';
+
+            event.target.style.borderRadius = '0';
+        }
+
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.navbar a').forEach(function(link) {
+                link.style.borderRadius = '40px'; 
+            });
+
+
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+        });
+
+        document.querySelector('.navbar').addEventListener('click', function(event) {
+            event.stopPropagation();
+    });
+
+    const body = document.querySelector('body');
+    const fontDisplay = document.querySelector('.font-display');
+    const colorPicker = document.getElementById('colorPicker');
+    const increaseFontBtn = document.getElementById('increaseFont');
+    const decreaseFontBtn = document.getElementById('decreaseFont');
+
+    colorPicker.addEventListener('input', (event) => {
+
+        colorPicker.style.background = 'none';
+        body.style.backgroundColor = event.target.value;
+    });
+
+    increaseFontBtn.addEventListener('click', () => {
+        let currentSize = window.getComputedStyle(fontDisplay).fontSize;
+        let currentLineHeight = window.getComputedStyle(fontDisplay).lineHeight;
+
+        fontDisplay.style.fontSize = (parseFloat(currentSize) + 5) + 'px';
+        fontDisplay.style.lineHeight = (parseFloat(currentLineHeight) + 5) + 'px';
+    });
+
+    decreaseFontBtn.addEventListener('click', () => {
+        let currentSize = window.getComputedStyle(fontDisplay).fontSize;
+        let currentLineHeight = window.getComputedStyle(fontDisplay).lineHeight;
+
+        fontDisplay.style.fontSize = (parseFloat(currentSize) - 5) + 'px';
+        fontDisplay.style.lineHeight = (parseFloat(currentLineHeight) - 5) + 'px';
+    });
+
+
+    
+</script>
+</body>
+</html>
