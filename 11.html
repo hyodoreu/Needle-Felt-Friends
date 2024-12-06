@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Needle Felt Friends!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="favi/apple-touch-icon.png">
+    <link rel="icon" type="image/png"sizes="32x32" href="favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favi/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favi/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="favi/favicon.ico"/>
+    <meta property="og:image" content="og.png" />
+
+    <style>
+        @font-face {
+            font-family: 'BMkkubulimTTF-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/BMkkubulimTTF-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body, header, div, nav{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            flex-direction: column;  
+            overflow-x: hidden;
+            font-family: 'BMkkubulimTTF-Regular';    
+            font-size: 2rem;    
+            background-image: url('back.png');
+            background-size: cover; 
+            background-repeat: repeat; 
+            background-position: center; 
+            background-attachment: fixed; 
+            display: flex;             
+            justify-content: center;   
+            align-items: center;
+            color:#e80000;
+        }
+        body ::selection {
+            color:  #0067f8;
+            }
+        body.scrollbar {
+            overflow-y: scroll;
+        }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 10px; 
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb {
+            background: #0067f8;  
+            border-radius: 10px; 
+        }
+
+        .scrollbar::-webkit-scrollbar-track {
+            background: rgba(20, 50, 220, 0.1);
+        }
+        .click{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+        }
+        .image-container {
+            width: 48vw;
+            height: auto;
+            overflow: hidden;
+            
+        }
+
+        #change-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .detail{
+            padding-top: 5vh;
+            width: 60vw;
+            text-align: center;
+            padding-bottom: 10vh;
+            
+        }
+        .detail img{
+            width: 100%;         
+            height: 100%;        
+            margin-left: 2vw;
+            object-fit: cover;        
+        }
+        .size{
+            margin-top: -40px;
+            color: #0067f8;
+            font-size: 1.3rem;
+        }
+        p, a{
+            word-break:keep-all;
+            text-decoration: none;
+            color: inherit; 
+
+            text-decoration: none; 
+        }
+        .des{
+            padding-top: 7vh;
+            color:#e80000;
+            mix-blend-mode: difference;
+        }
+        .this{
+            padding-top: 7vh;
+            mix-blend-mode: difference;
+
+        }
+        .here{
+            
+            background-color:  #0067f8;;
+        }
+        @media (max-width: 768px) and (orientation: portrait) {
+            .click{
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 130px;
+            }
+            .image-container {
+            width: 100vw;
+            height: auto;
+            overflow: hidden;
+            padding-top: 80px;
+            
+            }
+            .detail{
+                padding-top: 5vh;
+                width: 90vw;
+                text-align: center;
+                padding-bottom: 10vh;
+                
+                
+            }
+            .detail img{
+                width: 100%;               
+                margin-left: 3vw;
+                object-fit: cover;        
+            }
+            .size{
+                margin-top: -20px;
+                color: #0067f8;
+                font-size: 1.0rem;
+            }
+            p, a{
+                word-break:keep-all;
+                text-decoration: none;
+                color: inherit; 
+
+                text-decoration: none; 
+            }
+            .des{
+                padding-top: 7vh;
+                color:#e80000;
+                mix-blend-mode: difference;
+            }
+            .this{
+                padding-top: 7vh;
+                mix-blend-mode: difference;
+
+            }
+            .des br {
+                display: none;
+            }
+            body{
+                
+                background-image: url('back2.png');
+            }
+        }
+    </style>
+    </head>
+    <body class="scrollbar">
+        <a href="index.html">
+            <img src="click.png" class="click">
+        </a>
+        <div class="image-container">
+            <img id="change-image" src="img/eleven-1.png" alt="Image" />
+        </div>
+        <div class="detail">
+            <img src="price/6.png">
+            <p class="size">
+                Height: 28 cm / Width: 24 cm / Depth: 8 cm / 79g
+            </p>
+            <p class="des">
+                매일 긍정적으로 사는 친구예요!</br>
+                수영보다 댄스를 더 좋아한다고 하네요!</br>
+                귀여운 무릎 좀 보세요!♥</br>
+            </p>
+            <p class="this" >
+                이 친구가 마음에 드는 분은 <a href="https://www.instagram.com/direct/t/hyodoreu_u" target="_blank" class="here">여기로</a> 연락주세요!
+            </p>
+
+        </div>
+        
+        
+    </body>
+    
+    <script>
+        const images = [
+            'img/eleven-1.png',
+            'img/eleven-2.png',
+            'img/eleven-3.png'
+        ];
+
+        let currentImageIndex = 0;
+
+        const imageElement = document.getElementById('change-image');
+
+        imageElement.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            
+            imageElement.src = images[currentImageIndex];
+        });
+    </script>
+    </html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Needle Felt Friends!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="favi/apple-touch-icon.png">
+    <link rel="icon" type="image/png"sizes="32x32" href="favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favi/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favi/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="favi/favicon.ico"/>
+    <meta property="og:image" content="og.png" />
+
+    <style>
+        @font-face {
+            font-family: 'BMkkubulimTTF-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/BMkkubulimTTF-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body, header, div, nav{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            overflow-x: hidden;
+            font-family: 'BMkkubulimTTF-Regular';    
+            font-size: 1.4rem;    
+            background-image: url('back.png');
+            background-size: cover; 
+            background-repeat: repeat; 
+            background-position: center; 
+            background-attachment: fixed; 
+        }
+        body ::selection {
+            color: rgb(0, 255, 187);
+            }
+        body.scrollbar {
+            overflow-y: scroll;
+        }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 10px; 
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb {
+            background: #0067f8;  
+            border-radius: 10px; 
+        }
+
+        .scrollbar::-webkit-scrollbar-track {
+            background: rgba(20, 50, 220, 0.1);
+        }
+        .main{
+            width: 96vw;
+            margin-top: -30px;
+            margin-left: 2vw;
+        }
+        header{
+            position: relative;
+        }
+        .star{
+            position: absolute;
+            z-index: 2;
+            transform-style: preserve-3d; 
+            transition: transform 0.3s ease;
+        }
+        .star:hover {
+        transform: rotateY(180deg);
+        }
+        .star img {
+        width: 100%;
+        height: auto;
+        backface-visibility: hidden; 
+        }
+
+        .s1{
+            top:2vh;
+            left:7vw;
+            width: 15%;
+        }
+        
+        .s2{
+            top:0;
+            right:10vw;
+            width: 25%;
+        }
+        .s3{
+            bottom: 0;
+            left: 0;
+            width: 22%;
+
+            
+        }
+        .s4{
+            bottom:20vh;
+            right: 33vw;
+            width: 22%;
+        }
+        .s5{
+            bottom: 0;
+            right: 0;
+            width: 26%;
+
+        }
+        .grid-container {
+        margin-top: 7vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 20px; /* 아이템 간 간격 */
+        padding: 20px;
+        }
+
+        .grid-item {
+        padding: 20px;
+        text-align: center;
+        font-size: 1.2rem;
+        }
+        .grid-item img {
+            width: 100%;         
+            height: 100%;        
+            object-fit: cover; 
+            transition: transform 0.3s ease;   
+        }
+        .grid-item img:hover{
+            transform: scale(1.1);  
+        }
+        
+        .container {
+            display: grid;
+            place-items: center; 
+            margin: 0; 
+            margin-top: 100px;
+        }
+
+        .delivery {
+            width: 50vw;
+            padding: 20px;
+            text-align: center; 
+        }
+        .deliveryimg {
+            position: relative;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100%; 
+        }
+
+        .deliverytypo {
+            width: 50%;
+            margin: 10px 0;
+            margin-top: -140px;
+        }
+
+        .deliverygif {
+            width: 80%;
+            object-fit: cover; 
+            
+        }
+
+        .deliverytext {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            color: #0067f8;
+            text-align: center; 
+            padding: 10px;
+            height: 100%; 
+            mix-blend-mode:color-burn;
+        }
+        .custom {
+            width: 50vw;
+            padding: 20px;
+            text-align: center; 
+        }
+        .customimg {
+            position: relative;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100%; 
+        }
+        .customgif {
+            width: 80%;
+            object-fit: cover; 
+            
+        }
+
+        .customtext {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            color: #0067f8;
+            text-align: center; 
+            padding: 10px;
+            height: 100%; 
+            mix-blend-mode:color-burn;
+        }
+        p{word-break:keep-all;}
+        
+
+        footer{
+            font-size: 1.3rem;
+            color: #e80000;
+            padding-top: 15vh;
+            text-align: center ;
+            line-height: 1.4;
+        }
+        @media (max-width: 768px) and (orientation: portrait) {
+            body{
+                
+                background-image: url('back2.png');
+            }
+            .main{
+            width: 100%;
+            margin-top: 0px;
+            margin-left: 0vw;
+        }
+        .star{
+            width: 44%;
+        }
+        .s1{
+            top:8vh;
+            left:2vw;
+            width: 30%;
+        }
+        
+        .s2{
+            top:0;
+            right:0vw;
+        }
+        .s3{
+            top: 59vh;
+            left: 0;
+
+            
+        }
+        .s4{
+            top: 28vh;
+            right: 30vw;
+        }
+        .s5{
+            top: 46vh;
+            right: 0vw;
+        }
+        .container {
+            display: grid;
+            place-items: center; 
+            margin: 0; 
+            margin-top: 50px;
+        }
+        .delivery {
+            width: 90vw;
+            padding: 20px;
+            text-align: center; 
+        }
+        .deliveryimg {
+            position: relative;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100%; 
+        }
+
+        .deliverytypo {
+            width: 80%;
+            margin: 10px 0;
+            margin-top: -50px;
+        }
+        .deliverygif {
+            width: 100%;
+            object-fit: cover; 
+            
+        }
+        .custom {
+            width: 90vw;
+            padding: 20px;
+            text-align: center; 
+        }
+        .customimg {
+            position: relative;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100%; 
+        }
+        .customgif {
+            width: 90%;
+            object-fit: cover; 
+            
+        }
+        footer{
+            padding-bottom: 30px;
+        }
+        }
+        @media (max-width: 2000px) and (orientation: portrait) {
+            .grid-container {
+        margin-top: 7vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        gap: 20px; /* 아이템 간 간격 */
+        padding: 20px;
+        }
+
+        }
+    </style>
+</head>
+<body class="scrollbar">
+    <header>
+        <img src="maintypo.png" alt="main" class="main" id="responsive-image">
+        <img src="star/star-1.png" class="star s1">
+        <img src="star/star-2.png" class="star s2">
+        <img src="star/star-3.png" class="star s3">
+        <img src="star/star-4.png" class="star s4">
+        <img src="star/star-5.png" class="star s5">
+
+
+    </header>
+    <div class="grid-container">
+        <a href="1.html">
+            <div class="grid-item"><img src="img/one.png" alt="Image 1"></div>
+        </a>
+        <a href="2.html">
+            <div class="grid-item"><img src="img/two.png" alt="Image 2"></div>
+        </a>
+        <a href="3.html">
+            <div class="grid-item"><img src="img/three.png" alt="Image 3"></div>
+        </a>
+        <a href="4.html">
+            <div class="grid-item"><img src="img/four.png" alt="Image 4"></div>
+        </a>
+        <a href="5.html">
+            <div class="grid-item"><img src="img/five.png" alt="Image 5"></div>
+        </a>
+        <a href="6.html">
+            <div class="grid-item"><img src="img/six.png" alt="Image 6"></div>
+        </a>
+        <a href="7.html">
+            <div class="grid-item"><img src="img/seven.png" alt="Image 7"></div>
+        </a>
+        <a href="8.html">
+            <div class="grid-item"><img src="img/eight.png" alt="Image 8"></div>
+        </a>
+        <a href="9.html">
+            <div class="grid-item"><img src="img/nine.png" alt="Image 9"></div>
+        </a>
+        <a href="10.html">
+            <div class="grid-item"><img src="img/ten.png" alt="Image 10"></div>
+        </a>
+        <a href="11.html">
+            <div class="grid-item"><img src="img/eleven.png" alt="Image 11"></div>
+        </a>
+        <a href="12.html">
+            <div class="grid-item"><img src="img/twelve.png" alt="Image 12"></div>
+        </a>
+        <a href="13.html">
+            <div class="grid-item"><img src="img/thirteen.png" alt="Image 13"></div>
+        </a>
+        <a href="14.html">
+            <div class="grid-item"><img src="img/fourteen.png" alt="Image 14"></div>
+        </a>
+        <a href="15.html">
+            <div class="grid-item"><img src="img/fifteen.png" alt="Image 15"></div>
+        </a>
+    </div>
+    <section class="container">
+        <div class="delivery">
+            <div class="deliveryimg">
+                <img src="gif/delivery.gif" class="deliverygif">
+                <img src="delivery.png" class="deliverytypo">
+
+            </div>
+            <div class="deliverytext">
+                <p>
+                    ☻ 대형 인형은 포장하는 데 어려움이 있어 직접 배송합니다.</br>
+                    ☻ 노원구 근처 배송지는 직접 배송합니다.</br>      
+                    ☻ 배송비는 2000원 추가됩니다.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="custom">
+            <div class="customimg">
+                <img src="gif/custom.gif" class="customgif">
+            </div>
+            <div class="customtext">
+                <p>
+                    ☻ 12월 31일까지 주문 제작 받습니다.</br>
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        © 2024 hyodoreu. All Rights Reserved.</br>
+        사업자등록번호  223-11-52766   2022-08-05 
+
+    </footer>
+</body>
+
+<script>
+    const imageElement = document.getElementById('responsive-image');
+
+function updateImage() {
+    if (window.innerWidth <= 768) {
+        imageElement.src = 'maintypo-mobile.png'; // 모바일 이미지
+    } else {
+        imageElement.src = 'maintypo.png'; // 데스크탑 이미지
+    }
+}
+
+// 초기 호출 및 화면 크기 변경 시 업데이트
+updateImage();
+window.addEventListener('resize', updateImage);
+</script>
+</html>
